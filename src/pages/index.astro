@@ -1,5 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import heroImg1 from '../assets/images/rental.jpg';
+import heroImg2 from '../assets/images/remodel.jpg';
+import remodelImg from '../assets/images/remodel.jpg';
+import bathroomImg from '../assets/images/bathroom.jpg';
+import fireplaceStoneImg from '../assets/images/fireplace-with-stone.jpg';
+import deckImg from '../assets/images/deck.jpg';
+import showerImg from '../assets/images/shower.jpg';
+import bunkbedsImg from '../assets/images/custom-bunkbeds.jpg';
+import roofingImg from '../assets/images/roofing.jpg';
+import outdoorStairsImg from '../assets/images/outdoor-stairs.jpg';
 
 const services = [
   { icon: '🏚️', title: 'Porch & Deck Repair',        slug: 'porch-and-deck-repair',      desc: 'Sagging boards, rotted posts, loose railings — we fix the porch and deck problems most contractors won\'t touch.' },
@@ -10,15 +20,40 @@ const services = [
   { icon: '🏡', title: 'Pre-Listing Repairs',         slug: 'pre-listing-repairs',         desc: 'House sitting on the market? We fix what\'s keeping buyers away so your listing can close at full value.' },
   { icon: '🔑', title: 'Property Management Turnover', slug: 'property-management-turnover', desc: 'Fast, reliable between-tenant repairs. Sheetrock, paint, floors, fixtures — we get your rental rent-ready.' },
 ];
+
+const gallery = [
+  { src: remodelImg.src,        label: 'Full Remodel',       featured: true },
+  { src: bathroomImg.src,       label: 'Bathroom Work',      featured: false },
+  { src: fireplaceStoneImg.src, label: 'Custom Stonework',   featured: false },
+  { src: deckImg.src,           label: 'Deck Repair',        featured: false },
+  { src: showerImg.src,         label: 'Tile & Shower',      featured: false },
+  { src: bunkbedsImg.src,       label: 'Custom Woodwork',    featured: false },
+  { src: roofingImg.src,        label: 'Roof Repair',        featured: false },
+  { src: outdoorStairsImg.src,  label: 'Outdoor Stairs',     featured: false },
+];
 ---
 
 <BaseLayout title="Timber Reserve | Home Repairs, Renovations & Small Builds">
 
   <!-- Hero -->
   <section id="hero-section" class="bg-[#2f6b35] text-white relative overflow-hidden md:min-h-[calc(100vh-72px)] flex items-center">
+
+    <!-- Background photos: two stacked images visible on the right (desktop only) -->
+    <div class="absolute inset-y-0 right-0 w-[55%] hidden md:grid grid-rows-2">
+      <img src={heroImg1.src} alt="" class="w-full h-full object-cover object-center" />
+      <img src={heroImg2.src} alt="" class="w-full h-full object-cover object-center" />
+    </div>
+
+    <!-- Gradient overlay: solid green on left, fades to reveal photos on right -->
+    <div class="absolute inset-0 hidden md:block"
+      style="background: linear-gradient(to right, #2f6b35 28%, rgba(47,107,53,0.97) 38%, rgba(47,107,53,0.65) 55%, rgba(47,107,53,0.15) 75%, rgba(0,0,0,0.25) 100%);">
+    </div>
+
+    <!-- Subtle pattern texture -->
     <div class="absolute inset-0 opacity-10"
       style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 20px 20px;">
     </div>
+
     <div id="hero-inner" class="relative max-w-6xl mx-auto px-6 py-8 md:py-12 w-full grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
       <!-- Left: Headline -->
@@ -133,6 +168,30 @@ const services = [
             <h3 class="text-xl font-bold uppercase tracking-wide mb-2 group-hover:text-[#2f6b35] transition-colors" style="font-family: 'Oswald', sans-serif;">{s.title}</h3>
             <p class="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
           </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Gallery -->
+  <section class="bg-[#1e4a22] py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="mb-12">
+        <p class="text-[#a8d4ab] uppercase tracking-[0.3em] text-sm font-semibold mb-2">Portfolio</p>
+        <h2 class="text-5xl font-black uppercase text-white" style="font-family: 'Oswald', sans-serif;">Our Work</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {gallery.map((item) => (
+          <div class={`relative overflow-hidden rounded group ${item.featured ? 'col-span-2 md:col-span-2' : 'col-span-1'}`}>
+            <img
+              src={item.src}
+              alt={item.label}
+              class="w-full h-52 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+              <span class="text-white font-bold uppercase tracking-wide text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="font-family: 'Oswald', sans-serif;">{item.label}</span>
+            </div>
+          </div>
         ))}
       </div>
     </div>
