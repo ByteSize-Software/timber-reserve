@@ -3,33 +3,98 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Home | Timber Reserve">
-  <section class="text-center py-20">
-    <h1 class="text-5xl font-bold text-gray-900 mb-4">Welcome to Timber Reserve</h1>
-    <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-      A blazing-fast website built with Astro and styled with Tailwind CSS.
-    </p>
-    <a
-      href="https://docs.astro.build"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-block bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
-    >
-      Read the Docs
-    </a>
-  </section>
-
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-    <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-      <h2 class="text-xl font-semibold mb-2">Fast by Default</h2>
-      <p class="text-gray-600">Astro ships zero JavaScript by default, making your site lightning fast.</p>
-    </div>
-    <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-      <h2 class="text-xl font-semibold mb-2">Tailwind Styled</h2>
-      <p class="text-gray-600">Utility-first CSS with Tailwind gives you full design flexibility.</p>
-    </div>
-    <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-      <h2 class="text-xl font-semibold mb-2">Ready to Build</h2>
-      <p class="text-gray-600">Your project is scaffolded and ready. Start building something great!</p>
-    </div>
-  </section>
+  <div class="hero" id="hero">
+    <span class="word">WE</span>
+    <span class="word">BUILD</span>
+    <span class="word">STUFF.</span>
+  </div>
 </BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+  :global(body) {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: -2.5rem;
+    min-height: calc(100vh - 64px);
+    background-color: #3d7342;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4% 8%;
+    overflow: hidden;
+  }
+
+  .word {
+    font-family: 'Alfa Slab One', serif;
+    font-size: clamp(4rem, 20vw, 18rem);
+    color: #f2ede0;
+    line-height: 0.92;
+    display: block;
+    transform: translateY(-130vh);
+    will-change: transform;
+  }
+
+  @keyframes wordFall {
+    from { transform: translateY(-130vh); }
+    to   { transform: translateY(0); }
+  }
+
+  @keyframes groundShake {
+    0%   { transform: translate(0, 0); }
+    12%  { transform: translate(-12px, 7px); }
+    24%  { transform: translate(12px, -7px); }
+    36%  { transform: translate(-8px, 5px); }
+    48%  { transform: translate(8px, -5px); }
+    60%  { transform: translate(-5px, 3px); }
+    72%  { transform: translate(5px, -3px); }
+    84%  { transform: translate(-2px, 1px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  .hero.shaking {
+    animation: groundShake 0.45s ease-out;
+  }
+</style>
+
+<script>
+  const words = Array.from(document.querySelectorAll<HTMLElement>('.word'));
+  const hero = document.getElementById('hero')!;
+  const FALL_MS = 480;
+
+  function wait(ms: number) {
+    return new Promise<void>(r => setTimeout(r, ms));
+  }
+
+  function shakeHero() {
+    hero.classList.remove('shaking');
+    void hero.offsetWidth; // force reflow so browser treats it as a new animation
+    hero.classList.add('shaking');
+  }
+
+  function dropWord(word: HTMLElement) {
+    return new Promise<void>(resolve => {
+      word.style.animation = `wordFall ${FALL_MS}ms cubic-bezier(0.6, 0, 1, 0.5) forwards`;
+      setTimeout(() => {
+        shakeHero();
+        resolve();
+      }, FALL_MS);
+    });
+  }
+
+  async function animate() {
+    await wait(300);
+    await dropWord(words[0]);
+    await wait(450);
+    await dropWord(words[1]);
+    await wait(450);
+    await dropWord(words[2]);
+  }
+
+  animate();
+</script>
