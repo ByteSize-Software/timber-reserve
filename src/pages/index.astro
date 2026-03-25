@@ -5,28 +5,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Timber Reserve | Home Repairs & Renovations">
 
   <!-- Hero -->
-  <section class="bg-[#2f6b35] text-white relative overflow-hidden">
+  <section id="hero-section" class="bg-[#2f6b35] text-white relative overflow-hidden min-h-[calc(100vh-72px)] flex items-center">
     <div class="absolute inset-0 opacity-10"
       style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 20px 20px;">
     </div>
-    <div class="relative max-w-6xl mx-auto px-6 py-24 md:py-36">
-      <p class="text-[#a8d4ab] uppercase tracking-[0.3em] text-sm font-semibold mb-4">Fieldworks &bull; Home &bull; Trades</p>
-      <h1 class="text-6xl md:text-8xl lg:text-9xl font-black uppercase leading-none tracking-tight mb-8" style="font-family: 'Oswald', sans-serif;">
-        We<br/>Build<br/><span class="text-[#f5edd8]">Stuff.</span>
-      </h1>
-      <p class="text-xl md:text-2xl text-[#c8e6ca] max-w-xl leading-relaxed mb-10">
-        Your one stop shop for repairs, renovations, dirt work, and small builds — done right the first time.
-      </p>
-      <div class="flex flex-wrap gap-4">
+    <div id="hero-inner" class="relative max-w-6xl mx-auto px-6 py-12 w-full grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- Left: Headline -->
+      <div>
+        <p class="text-[#a8d4ab] uppercase tracking-[0.3em] text-sm font-semibold mb-4">Fieldworks &bull; Home &bull; Trades</p>
+        <h1 class="text-8xl md:text-9xl lg:text-[11rem] font-black uppercase leading-none tracking-tight mb-6 overflow-hidden" style="font-family: 'Oswald', sans-serif;">
+          <span id="word-we"    class="word-hidden">We</span>
+          <span id="word-build" class="word-hidden">Build</span>
+          <span id="word-stuff" class="word-hidden text-[#f5edd8]">Stuff.</span>
+        </h1>
+        <p class="text-lg text-[#c8e6ca] leading-relaxed">
+          Your one stop shop for repairs, renovations, dirt work, and small builds — done right the first time.
+        </p>
+      </div>
+
+      <!-- Right: CTA -->
+      <div class="flex flex-col gap-4 md:items-start">
         <a href="tel:8643265491"
-          class="bg-[#4a3219] text-[#f5edd8] px-8 py-4 text-lg font-bold uppercase tracking-wider hover:bg-[#3a2510] transition-colors rounded">
+          class="w-full md:w-auto bg-[#4a3219] text-[#f5edd8] px-10 py-5 text-xl font-bold uppercase tracking-wider hover:bg-[#3a2510] transition-colors rounded text-center">
           Call Now
         </a>
         <a href="#services"
-          class="border-2 border-[#f5edd8] text-[#f5edd8] px-8 py-4 text-lg font-bold uppercase tracking-wider hover:bg-[#f5edd8] hover:text-[#2f6b35] transition-colors rounded">
+          class="w-full md:w-auto border-2 border-[#f5edd8] text-[#f5edd8] px-10 py-5 text-xl font-bold uppercase tracking-wider hover:bg-[#f5edd8] hover:text-[#2f6b35] transition-colors rounded text-center">
           Our Services
         </a>
       </div>
+
     </div>
   </section>
 
@@ -110,3 +119,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
 </BaseLayout>
+
+<script>
+  const hero = document.getElementById('hero-inner') as HTMLElement;
+
+  const sequence: Array<{ id: string; delay: number; shake: string }> = [
+    { id: 'word-we',    delay: 300,  shake: 'shake-sm' },
+    { id: 'word-build', delay: 750,  shake: 'shake-md' },
+    { id: 'word-stuff', delay: 1250, shake: 'shake-lg' },
+  ];
+
+  sequence.forEach(({ id, delay, shake }) => {
+    setTimeout(() => {
+      const word = document.getElementById(id)!;
+      word.classList.add('word-slam');
+
+      // Shake fires just before the word hits (~35% through the 350ms slam = ~120ms)
+      setTimeout(() => {
+        hero.classList.remove('shake-sm', 'shake-md', 'shake-lg');
+        // Force reflow so re-adding the same class re-triggers animation
+        void hero.offsetWidth;
+        hero.classList.add(shake);
+      }, 120);
+    }, delay);
+  });
+</script>
