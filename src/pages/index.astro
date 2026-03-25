@@ -38,13 +38,19 @@ const gallery = [
   <!-- Hero -->
   <section id="hero-section" class="bg-[#2f6b35] text-white relative overflow-hidden md:min-h-[calc(100vh-72px)] flex items-center">
 
-    <!-- Background photos: two stacked images visible on the right (desktop only) -->
+    <!-- Mobile background photo (full bleed, single image) -->
+    <div class="absolute inset-0 md:hidden">
+      <img src={heroImg1.src} alt="" class="w-full h-full object-cover object-center" />
+      <div class="absolute inset-0 bg-[#2f6b35]/85"></div>
+    </div>
+
+    <!-- Desktop background photos: two stacked images visible on the right -->
     <div class="absolute inset-y-0 right-0 w-[55%] hidden md:grid grid-rows-2">
       <img src={heroImg1.src} alt="" class="w-full h-full object-cover object-center" />
       <img src={heroImg2.src} alt="" class="w-full h-full object-cover object-center" />
     </div>
 
-    <!-- Gradient overlay: solid green on left, fades to reveal photos on right -->
+    <!-- Desktop gradient overlay: solid green on left, fades to reveal photos on right -->
     <div class="absolute inset-0 hidden md:block"
       style="background: linear-gradient(to right, #2f6b35 28%, rgba(47,107,53,0.97) 38%, rgba(47,107,53,0.65) 55%, rgba(47,107,53,0.15) 75%, rgba(0,0,0,0.25) 100%);">
     </div>
