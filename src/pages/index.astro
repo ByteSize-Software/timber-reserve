@@ -2,99 +2,111 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Home | Timber Reserve">
-  <div class="hero" id="hero">
-    <span class="word">WE</span>
-    <span class="word">BUILD</span>
-    <span class="word">STUFF.</span>
-  </div>
+<BaseLayout title="Timber Reserve | Home Repairs & Renovations">
+
+  <!-- Hero -->
+  <section class="bg-[#2f6b35] text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+      style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 20px 20px;">
+    </div>
+    <div class="relative max-w-6xl mx-auto px-6 py-24 md:py-36">
+      <p class="text-[#a8d4ab] uppercase tracking-[0.3em] text-sm font-semibold mb-4">Fieldworks &bull; Home &bull; Trades</p>
+      <h1 class="text-6xl md:text-8xl lg:text-9xl font-black uppercase leading-none tracking-tight mb-8" style="font-family: 'Oswald', sans-serif;">
+        We<br/>Build<br/><span class="text-[#f5edd8]">Stuff.</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-[#c8e6ca] max-w-xl leading-relaxed mb-10">
+        Your one stop shop for repairs, renovations, dirt work, and small builds — done right the first time.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="tel:8643265491"
+          class="bg-[#4a3219] text-[#f5edd8] px-8 py-4 text-lg font-bold uppercase tracking-wider hover:bg-[#3a2510] transition-colors rounded">
+          Call Now
+        </a>
+        <a href="#services"
+          class="border-2 border-[#f5edd8] text-[#f5edd8] px-8 py-4 text-lg font-bold uppercase tracking-wider hover:bg-[#f5edd8] hover:text-[#2f6b35] transition-colors rounded">
+          Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tagline Banner -->
+  <section class="bg-[#4a3219] text-[#f5edd8] py-6">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="text-2xl md:text-3xl font-bold tracking-wide" style="font-family: 'Oswald', sans-serif;">
+        Done Right. &nbsp; Done Fast. &nbsp; Work Guaranteed.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="bg-[#f5edd8] py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="mb-12">
+        <p class="text-[#2f6b35] uppercase tracking-[0.3em] text-sm font-semibold mb-2">What We Do</p>
+        <h2 class="text-5xl font-black uppercase" style="font-family: 'Oswald', sans-serif;">Our Services</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        {[
+          { icon: '🏗️', title: 'Framing', desc: 'Structural framing for additions, decks, and new builds done to code.' },
+          { icon: '🌿', title: 'Drainage & Landscape', desc: 'Grading, drainage solutions, and landscaping to protect your property.' },
+          { icon: '🔥', title: 'Outdoor Spaces', desc: 'Firepits, pergolas, porches, and custom outdoor living areas.' },
+          { icon: '🪵', title: 'Custom Interiors', desc: 'Handcrafted woodwork, built-ins, and custom interior finishes.' },
+          { icon: '🧱', title: 'Tile & Stone', desc: 'Tile, stone veneers, fireplaces, and decorative masonry.' },
+          { icon: '🏠', title: 'Exterior Finishes', desc: 'Siding, painting, trim, and exterior renovation from top to bottom.' },
+        ].map((s) => (
+          <div class="bg-white border-l-4 border-[#2f6b35] p-6 shadow-sm hover:shadow-md transition-shadow rounded-r">
+            <div class="text-3xl mb-3">{s.icon}</div>
+            <h3 class="text-xl font-bold uppercase tracking-wide mb-2" style="font-family: 'Oswald', sans-serif;">{s.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About / CTA -->
+  <section class="bg-[#2f6b35] text-white py-20">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-[#a8d4ab] uppercase tracking-[0.3em] text-sm font-semibold mb-3">Why Timber Reserve</p>
+        <h2 class="text-5xl font-black uppercase leading-tight mb-6" style="font-family: 'Oswald', sans-serif;">
+          One Crew.<br/>Every Job.
+        </h2>
+        <p class="text-[#c8e6ca] text-lg leading-relaxed mb-8">
+          We handle the full picture — fieldwork, home repairs, and skilled trades all under one roof.
+          No subcontractor runaround. No finger-pointing. Just solid work from people who take pride in what they build.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="tel:8643265491"
+            class="bg-[#f5edd8] text-[#2f6b35] px-8 py-4 font-bold uppercase tracking-wider hover:bg-white transition-colors rounded text-center">
+            864.326.5491
+          </a>
+          <a href="mailto:yallfixit@gmail.com"
+            class="border-2 border-[#f5edd8] text-[#f5edd8] px-8 py-4 font-bold uppercase tracking-wider hover:bg-[#f5edd8] hover:text-[#2f6b35] transition-colors rounded text-center">
+            Send a Message
+          </a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        {[
+          'Licensed & Insured',
+          'Free Estimates',
+          'Satisfaction Guaranteed',
+          'Locally Owned',
+          'Serving 3 States',
+          'All Trades In-House',
+        ].map((item) => (
+          <div class="bg-[#245228] rounded p-4 flex items-center gap-3">
+            <span class="text-[#a8d4ab] text-xl">✓</span>
+            <span class="font-semibold text-sm uppercase tracking-wide">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
-
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
-
-  :global(body) {
-    overflow-x: hidden;
-  }
-
-  .hero {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-top: -2.5rem;
-    min-height: calc(100vh - 64px);
-    background-color: #3d7342;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4% 8%;
-    overflow: hidden;
-  }
-
-  .word {
-    font-family: 'Alfa Slab One', serif;
-    font-size: clamp(4rem, 20vw, 18rem);
-    color: #f2ede0;
-    line-height: 0.92;
-    display: block;
-    transform: translateY(-130vh);
-    will-change: transform;
-  }
-
-  @keyframes wordFall {
-    from { transform: translateY(-130vh); }
-    to   { transform: translateY(0); }
-  }
-
-  @keyframes groundShake {
-    0%   { transform: translate(0, 0); }
-    12%  { transform: translate(-12px, 7px); }
-    24%  { transform: translate(12px, -7px); }
-    36%  { transform: translate(-8px, 5px); }
-    48%  { transform: translate(8px, -5px); }
-    60%  { transform: translate(-5px, 3px); }
-    72%  { transform: translate(5px, -3px); }
-    84%  { transform: translate(-2px, 1px); }
-    100% { transform: translate(0, 0); }
-  }
-
-  .hero.shaking {
-    animation: groundShake 0.45s ease-out;
-  }
-</style>
-
-<script>
-  const words = Array.from(document.querySelectorAll<HTMLElement>('.word'));
-  const hero = document.getElementById('hero')!;
-  const FALL_MS = 480;
-
-  function wait(ms: number) {
-    return new Promise<void>(r => setTimeout(r, ms));
-  }
-
-  function shakeHero() {
-    hero.classList.remove('shaking');
-    void hero.offsetWidth; // force reflow so browser treats it as a new animation
-    hero.classList.add('shaking');
-  }
-
-  function dropWord(word: HTMLElement) {
-    return new Promise<void>(resolve => {
-      word.style.animation = `wordFall ${FALL_MS}ms cubic-bezier(0.6, 0, 1, 0.5) forwards`;
-      setTimeout(() => {
-        shakeHero();
-        resolve();
-      }, FALL_MS);
-    });
-  }
-
-  async function animate() {
-    await wait(300);
-    await dropWord(words[0]);
-    await wait(450);
-    await dropWord(words[1]);
-    await wait(450);
-    await dropWord(words[2]);
-  }
-
-  animate();
-</script>

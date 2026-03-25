@@ -1,6 +1,7 @@
 ---
 const { title = 'Timber Reserve' } = Astro.props;
 import '../styles/global.css';
+import logo from '../assets/logo.png';
 ---
 
 <!DOCTYPE html>
@@ -8,25 +9,77 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Timber Reserve" />
+    <meta name="description" content="Timber Reserve — Home Repairs and Renovations. Done Right. Done Fast. Work Guaranteed." />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   </head>
-  <body class="min-h-screen bg-white text-gray-900">
-    <header class="bg-gray-800 text-white py-4 px-6 shadow-md">
-      <nav class="max-w-5xl mx-auto flex items-center justify-between">
-        <a href="/" class="text-xl font-bold hover:text-gray-300 transition-colors">Timber Reserve</a>
-        <ul class="flex gap-6">
-          <li><a href="/" class="hover:text-gray-300 transition-colors">Home</a></li>
+  <body class="min-h-screen bg-[#f5edd8] text-gray-900" style="font-family: 'Open Sans', sans-serif;">
+
+    <header class="bg-[#2f6b35] shadow-lg">
+      <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/">
+          <img src={logo.src} alt="Timber Reserve" width={200} class="h-14 w-auto" />
+        </a>
+        <ul class="hidden md:flex gap-8 text-white text-sm font-semibold tracking-widest uppercase">
+          <li><a href="/" class="hover:text-[#f5edd8] transition-colors">Home</a></li>
+          <li><a href="#services" class="hover:text-[#f5edd8] transition-colors">Services</a></li>
+          <li><a href="#contact" class="hover:text-[#f5edd8] transition-colors">Contact</a></li>
         </ul>
+        <a href="tel:8643265491" class="hidden md:inline-block bg-[#4a3219] text-[#f5edd8] px-5 py-2 rounded font-semibold text-sm tracking-wide hover:bg-[#3a2510] transition-colors">
+          864.326.5491
+        </a>
       </nav>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-10">
-      <slot />
-    </main>
+    <slot />
 
-    <footer class="bg-gray-800 text-white text-center py-4 mt-10">
-      <p class="text-sm text-gray-400">&copy; {new Date().getFullYear()} Timber Reserve. All rights reserved.</p>
+    <footer id="contact" class="bg-[#1e4a22] text-white">
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <img src={logo.src} alt="Timber Reserve" width={160} class="h-12 w-auto mb-4 opacity-90" />
+            <p class="text-[#b8d4ba] text-sm leading-relaxed">
+              Your one stop shop for repairs, renovations, dirt work, and small builds.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-[#f5edd8] font-semibold uppercase tracking-widest text-sm mb-4">Contact Us</h3>
+            <ul class="space-y-2 text-[#b8d4ba] text-sm">
+              <li>
+                <a href="tel:8643265491" class="hover:text-white transition-colors flex items-center gap-2">
+                  <span>📞</span> 864.326.5491
+                </a>
+              </li>
+              <li>
+                <a href="mailto:yallfixit@gmail.com" class="hover:text-white transition-colors flex items-center gap-2">
+                  <span>✉️</span> yallfixit@gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-[#f5edd8] font-semibold uppercase tracking-widest text-sm mb-4">Service Areas</h3>
+            <p class="text-[#b8d4ba] text-sm">
+              Greenville, SC &bull; Clayton, GA &bull; Knoxville, TN
+            </p>
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 mt-4 text-[#b8d4ba] hover:text-white transition-colors text-sm"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Follow on Facebook
+            </a>
+          </div>
+        </div>
+        <div class="border-t border-[#2f6b35] pt-6 text-center text-[#7aaa7e] text-xs tracking-widest uppercase">
+          &copy; {new Date().getFullYear()} Timber Reserve. All rights reserved.
+        </div>
+      </div>
     </footer>
+
   </body>
 </html>

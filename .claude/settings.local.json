@@ -6,7 +6,8 @@
       "Bash(nvm install:*)",
       "Bash(nvm use:*)",
       "Bash(npm create:*)",
-      "Bash(npx astro:*)"
+      "Bash(npx astro:*)",
+      "Bash(npm run:*)"
     ]
   }
 }
