@@ -40,8 +40,55 @@ import logo from '../assets/logo.png';
         <a href="tel:8643265491" class="hidden md:inline-block bg-[#4a3219] text-[#f5edd8] px-5 py-2 rounded font-semibold text-sm tracking-wide hover:bg-[#3a2510] transition-colors">
           864.326.5491
         </a>
+
+        <!-- Mobile hamburger button -->
+        <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu">
+          <svg id="hamburger-icon" class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="w-8 h-8 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#245228] border-t border-[#2f6b35]">
+        <ul class="flex flex-col text-white text-sm font-semibold tracking-widest uppercase px-6 py-4 gap-4">
+          <li><a href="/" class="block py-1 hover:text-[#f5edd8] transition-colors">Home</a></li>
+          <li><a href="/services" class="block py-1 hover:text-[#f5edd8] transition-colors">Services</a></li>
+          <li>
+            <span class="block py-1 text-[#a8d4ab]">Locations</span>
+            <ul class="pl-4 mt-2 space-y-2 text-xs">
+              <li><a href="/locations/greenville-sc" class="block py-1 hover:text-[#f5edd8] transition-colors">Greenville, SC</a></li>
+              <li><a href="/locations/knoxville-tn" class="block py-1 hover:text-[#f5edd8] transition-colors">Knoxville, TN</a></li>
+              <li><a href="/locations/clayton-ga" class="block py-1 hover:text-[#f5edd8] transition-colors">Clayton, GA</a></li>
+              <li><a href="/locations/madisonville-tn" class="block py-1 hover:text-[#f5edd8] transition-colors">Madisonville, TN</a></li>
+              <li><a href="/locations/tellico-tn" class="block py-1 hover:text-[#f5edd8] transition-colors">Tellico, TN</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact" class="block py-1 hover:text-[#f5edd8] transition-colors">Contact</a></li>
+        </ul>
+        <div class="px-6 pb-5">
+          <a href="tel:8643265491" class="block bg-[#4a3219] text-[#f5edd8] px-5 py-3 rounded font-semibold text-sm tracking-wide hover:bg-[#3a2510] transition-colors text-center">
+            📞 864.326.5491
+          </a>
+        </div>
+      </div>
     </header>
+
+    <script>
+      const btn = document.getElementById('mobile-menu-btn')!;
+      const menu = document.getElementById('mobile-menu')!;
+      const hamburger = document.getElementById('hamburger-icon')!;
+      const closeIcon = document.getElementById('close-icon')!;
+
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        hamburger.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+    </script>
 
     <slot />
 
