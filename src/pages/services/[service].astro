@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const services = [
+  {
+    slug: 'porch-and-deck-repair',
+    icon: '🏚️',
+    title: 'Porch & Deck Repair',
+    metaTitle: 'Porch & Deck Repair | Timber Reserve',
+    metaDesc: 'Sagging boards, rotted posts, loose railings — Timber Reserve fixes porches and decks in Greenville SC, Knoxville TN, and Clayton GA.',
+    intro: 'Your porch is the first thing people see — and the first thing to show its age. Most contractors don\'t want to mess with a saggy porch or a rotted deck post. We do. Whether it\'s a handful of boards or a full structural repair, we show up, we fix it, and we don\'t leave until it\'s solid.',
+    bullets: [
+      'Rotted or sagging deck boards replaced',
+      'Loose and damaged railings repaired or rebuilt',
+      'Post and beam structural repairs',
+      'Stair repair and replacement',
+      'New deck and porch additions',
+      'Pressure washing and surface prep',
+    ],
+    whoFor: 'Homeowners who want their porch safe and presentable, and realtors who need to remove a red flag before showing.',
+    areas: ['Greenville, SC', 'Knoxville, TN', 'Clayton, GA', 'Madisonville, TN', 'Tellico, TN'],
+  },
+  {
+    slug: 'roof-repair',
+    icon: '🔧',
+    title: 'Roof Repair & Leak Patching',
+    metaTitle: 'Roof Repair & Leak Patching | Timber Reserve',
+    metaDesc: 'Small roof repairs, patch work, and leak fixes in Greenville SC, Knoxville TN, and Clayton GA. Timber Reserve stops the damage before it spreads.',
+    intro: 'A small leak becomes a big problem fast. We specialize in targeted roof repairs — patches, flashing, damaged shingles, and leak sources — without pushing you into a full replacement you may not need yet. We find the problem, fix it, and make sure your ceiling stays dry.',
+    bullets: [
+      'Roof leak detection and patching',
+      'Flashing repair and replacement',
+      'Damaged or missing shingle repair',
+      'Ceiling stain repair after leaks are fixed',
+      'Vent and pipe boot sealing',
+      'Flat roof patches',
+    ],
+    whoFor: 'Homeowners dealing with a drip, property managers with water-damaged units, and realtors whose inspector flagged a roof issue.',
+    areas: ['Greenville, SC', 'Knoxville, TN', 'Clayton, GA', 'Madisonville, TN', 'Tellico, TN'],
+  },
+  {
+    slug: 'drywall-repair',
+    icon: '🪟',
+    title: 'Drywall & Sheetrock Repair',
+    metaTitle: 'Drywall & Sheetrock Repair | Timber Reserve',
+    metaDesc: 'Hole in the wall? Water damage? Timber Reserve patches and finishes drywall in Greenville SC, Knoxville TN, and Clayton GA.',
+    intro: 'Holes from doorknobs, damage from tenants, water stains, or cracks from settling — sheetrock problems are everywhere. We patch them clean and finish them smooth. When we\'re done, you can\'t tell it was ever there.',
+    bullets: [
+      'Hole patching — any size',
+      'Water damage and mold remediation prep',
+      'Texture matching (smooth, orange peel, knockdown)',
+      'Full wall or ceiling replacement',
+      'Tape, mud, and finish coats',
+      'Paint-ready finish guaranteed',
+    ],
+    whoFor: 'Property managers flipping a rental between tenants, homeowners with damage, and realtors prepping for listing photos.',
+    areas: ['Greenville, SC', 'Knoxville, TN', 'Clayton, GA', 'Madisonville, TN', 'Tellico, TN'],
+  },
+  {
+    slug: 'flooring',
+    icon: '🪵',
+    title: 'Flooring',
+    metaTitle: 'Flooring Repair & Refinishing | Timber Reserve',
+    metaDesc: 'Carpet removal, hardwood floor refinishing, and damaged floor repair in Greenville SC, Knoxville TN, and Clayton GA.',
+    intro: 'Bad floors kill a sale and drive away renters. We rip out old carpet, refinish hardwood, replace damaged sections, and bring floors back to life. It\'s one of the highest-impact improvements you can make — and we do it fast.',
+    bullets: [
+      'Carpet removal and disposal',
+      'Hardwood floor refinishing and staining',
+      'Damaged plank replacement',
+      'Subfloor repair',
+      'Vinyl and LVP installation',
+      'Tile floor repair',
+    ],
+    whoFor: 'Realtors with a listing that needs updated floors before it moves, property managers handling turnover, and homeowners tired of worn-out carpet.',
+    areas: ['Greenville, SC', 'Knoxville, TN', 'Clayton, GA', 'Madisonville, TN', 'Tellico, TN'],
+  },
+  {
+    slug: 'custom-woodwork',
+    icon: '🪚',
+    title: 'Custom Woodwork & Interiors',
+    metaTitle: 'Custom Woodwork & Interior Carpentry | Timber Reserve',
+    metaDesc: 'Custom mantles, built-ins, and real wood interior work for mountain homes and cabins in Clayton GA, Tellico TN, and surrounding areas.',
+    intro: 'Some homes deserve more than stock trim from a big-box store. We work with real wood — including sawmill pieces we bring in and customize — to build mantles, built-ins, and one-of-a-kind interior features that match the character of your home. This is where we get to be creative, and we love it.',
+    bullets: [
+      'Custom fireplace mantles',
+      'Built-in shelving and cabinetry',
+      'Sawmill and live-edge wood pieces',
+      'Stair railings and balustrades',
+      'Tongue and groove wall and ceiling panels',
+      'Unique feature walls and accent details',
+    ],
+    whoFor: 'Homeowners in mountain cabins, lakeside properties, and retirement homes who want something custom — especially in the Clayton GA and Tellico TN areas.',
+    areas: ['Clayton, GA', 'Tellico, TN', 'Madisonville, TN', 'Knoxville, TN', 'Greenville, SC'],
+  },
+  {
+    slug: 'pre-listing-repairs',
+    icon: '🏡',
+    title: 'Pre-Listing Home Repairs',
+    metaTitle: 'Pre-Listing Home Repairs for Realtors | Timber Reserve',
+    metaDesc: 'We fix what\'s keeping buyers away. Pre-listing repairs for realtors in Greenville SC, Knoxville TN, and Clayton GA.',
+    intro: 'If a house has been sitting on the market for 45 days, something is drawing the attention of would-be buyers in the wrong way. We work directly with realtors to identify and fix those issues — floors, ceilings, roofs, walls — so the listing can finally transact at market value or above.',
+    bullets: [
+      'Full punch list repairs from inspection reports',
+      'Hardwood floor refinishing',
+      'Ceiling stain repair',
+      'Roof leak patching',
+      'Drywall and paint',
+      'Carpet removal and flooring upgrade',
+    ],
+    whoFor: 'Real estate agents with listings that need work before they\'ll move, and homeowners who want top dollar when they sell.',
+    areas: ['Greenville, SC', 'Knoxville, TN', 'Clayton, GA'],
+  },
+  {
+    slug: 'property-management-turnover',
+    icon: '🔑',
+    title: 'Property Management Turnover',
+    metaTitle: 'Rental Property Turnover Repairs | Timber Reserve',
+    metaDesc: 'Fast between-tenant repairs for property managers in Greenville SC and Knoxville TN. Sheetrock, flooring, paint, fixtures — we get your rental rent-ready.',
+    intro: 'Every day a rental sits vacant costs you money. We work with property managers to turn units around fast — fixing everything a tenant left behind and getting the unit back to rent-ready condition. One call, one crew, one invoice.',
+    bullets: [
+      'Sheetrock and drywall repair',
+      'Flooring repair and replacement',
+      'Ceiling stain and water damage repair',
+      'Paint and touch-up',
+      'Fixture replacement',
+      'Punch list completion',
+    ],
+    whoFor: 'Property managers and landlords in Greenville SC and Knoxville TN who need fast, reliable turnover work between tenants.',
+    areas: ['Greenville, SC', 'Knoxville, TN'],
+  },
+  ];
+  return services.map((s) => ({ params: { service: s.slug }, props: s }));
+}
+
+const { slug, icon, title, metaTitle, metaDesc, intro, bullets, whoFor, areas } = Astro.props;
+---
+
+<BaseLayout title={metaTitle}>
+
+  <section class="bg-[#2f6b35] text-white py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <a href="/services" class="text-[#a8d4ab] text-sm uppercase tracking-widest font-semibold hover:text-white transition-colors mb-4 inline-block">← All Services</a>
+      <div class="text-5xl mb-4">{icon}</div>
+      <h1 class="text-6xl md:text-7xl font-black uppercase leading-none" style="font-family: 'Oswald', sans-serif;">{title}</h1>
+    </div>
+  </section>
+
+  <section class="bg-[#f5edd8] py-20">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+
+      <!-- Main content -->
+      <div class="md:col-span-2 space-y-10">
+        <div>
+          <p class="text-lg text-gray-700 leading-relaxed">{intro}</p>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-black uppercase mb-6" style="font-family: 'Oswald', sans-serif;">What's Included</h2>
+          <ul class="space-y-3">
+            {bullets.map((b) => (
+              <li class="flex items-start gap-3 bg-white rounded p-4 shadow-sm">
+                <span class="text-[#2f6b35] font-bold text-lg mt-0.5">✓</span>
+                <span class="text-gray-700">{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-[#2f6b35] text-white rounded-lg p-6">
+          <h3 class="text-xl font-black uppercase mb-2" style="font-family: 'Oswald', sans-serif;">Who This Is For</h3>
+          <p class="text-[#c8e6ca] leading-relaxed">{whoFor}</p>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        <div class="bg-white rounded-lg shadow-sm p-6">
+          <h3 class="text-xl font-black uppercase mb-4" style="font-family: 'Oswald', sans-serif;">Get a Free Estimate</h3>
+          <p class="text-gray-600 text-sm mb-5">We'll get back to you within one business day.</p>
+          <a href="/contact" class="block w-full bg-[#2f6b35] text-white text-center py-4 font-bold uppercase tracking-wide hover:bg-[#245228] transition-colors rounded mb-3">
+            Contact Us
+          </a>
+          <a href="tel:8643265491" class="block w-full bg-[#4a3219] text-[#f5edd8] text-center py-4 font-bold uppercase tracking-wide hover:bg-[#3a2510] transition-colors rounded">
+            864.326.5491
+          </a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6">
+          <h3 class="text-xl font-black uppercase mb-4" style="font-family: 'Oswald', sans-serif;">Service Areas</h3>
+          <ul class="space-y-2">
+            {areas.map((area) => (
+              <li class="text-gray-700 text-sm flex items-center gap-2">
+                <span class="text-[#2f6b35]">📍</span> {area}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-[#4a3219] text-[#f5edd8] rounded-lg p-6 text-sm font-semibold uppercase tracking-wide text-center leading-relaxed">
+          Done Right.<br/>Done Fast.<br/>Work Guaranteed.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>

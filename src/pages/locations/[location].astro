@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const locations = [
+  {
+    slug: 'greenville-sc',
+    city: 'Greenville',
+    state: 'South Carolina',
+    stateAbbr: 'SC',
+    metaTitle: 'Home Repairs & Renovations in Greenville, SC | Timber Reserve',
+    metaDesc: 'Timber Reserve provides home repairs, rental property turnover, and pre-listing repairs in Greenville, South Carolina. Call 864.326.5491 for a free estimate.',
+    intro: 'Greenville, South Carolina is one of our core markets. Whether you\'re a homeowner in the Upstate looking for reliable repair work, a property manager with a rental that needs to turn over fast, or a realtor with a listing that needs to move — we\'re your crew.',
+    character: 'Greenville\'s growth means more rental properties, more real estate transactions, and more homeowners investing in their homes. We work across the Greenville metro handling everything from small repairs to full pre-listing prep.',
+    services: [
+      'Porch & deck repair',
+      'Roof repair and leak patching',
+      'Drywall and sheetrock repair',
+      'Flooring — hardwood refinishing, carpet removal, LVP',
+      'Property management turnover',
+      'Pre-listing repairs for realtors',
+      'Bathroom and shower work',
+    ],
+    customerTypes: ['Homeowners', 'Property managers', 'Realtors'],
+  },
+  {
+    slug: 'knoxville-tn',
+    city: 'Knoxville',
+    state: 'Tennessee',
+    stateAbbr: 'TN',
+    metaTitle: 'Home Repairs & Renovations in Knoxville, TN | Timber Reserve',
+    metaDesc: 'Timber Reserve handles home repairs, property management turnover, and pre-listing repairs in Knoxville, TN and surrounding areas including Madisonville and Tellico.',
+    intro: 'Knoxville is a growing city with an active rental market and a strong real estate scene. We work with Knoxville homeowners, property managers, and realtors to handle the repairs and renovations that keep properties in top shape.',
+    character: 'In Knoxville and the surrounding East Tennessee area — including Madisonville and the Tellico communities — we handle the full range of residential repair work. Rental turnovers, pre-listing punch lists, and everyday homeowner projects are all in our wheelhouse.',
+    services: [
+      'Porch & deck repair',
+      'Roof repair and leak patching',
+      'Drywall and sheetrock repair',
+      'Flooring repair and refinishing',
+      'Property management turnover',
+      'Pre-listing repairs for realtors',
+      'Custom woodwork and interiors',
+    ],
+    customerTypes: ['Homeowners', 'Property managers', 'Realtors'],
+    nearby: ['Madisonville, TN', 'Tellico, TN'],
+  },
+  {
+    slug: 'clayton-ga',
+    city: 'Clayton',
+    state: 'Georgia',
+    stateAbbr: 'GA',
+    metaTitle: 'Home Repairs & Custom Work in Clayton, GA | Timber Reserve',
+    metaDesc: 'Timber Reserve serves Clayton, GA and the North Georgia mountains — mountain homes, lakeside cabins, retirement properties, and custom woodwork.',
+    intro: 'Clayton, Georgia sits in the heart of the North Georgia mountains, and the work here is different from our city markets. This is where we get to be creative. Mountain homes, lakeside cabins, and retirement properties in this area tend to have character — and they deserve repairs and custom work that matches it.',
+    character: 'Clayton draws retirees and second-home owners who want quality craftsmanship, not cookie-cutter work. We bring in sawmill lumber, build custom mantles and built-ins, and work with the natural character of these unique homes. We also handle the everyday repairs that mountain home ownership demands.',
+    services: [
+      'Custom woodwork — mantles, built-ins, sawmill pieces',
+      'Porch and deck repair',
+      'Roof repair and leak patching',
+      'Cabin and mountain home renovations',
+      'Flooring — hardwood and custom',
+      'Drywall and interior repairs',
+    ],
+    customerTypes: ['Mountain homeowners', 'Cabin and lakeside property owners', 'Retirees'],
+  },
+  {
+    slug: 'madisonville-tn',
+    city: 'Madisonville',
+    state: 'Tennessee',
+    stateAbbr: 'TN',
+    metaTitle: 'Home Repairs in Madisonville, TN | Timber Reserve',
+    metaDesc: 'Timber Reserve provides home repairs and renovations in Madisonville, Tennessee. Porch repair, drywall, flooring, roof patching, and more.',
+    intro: 'Madisonville, Tennessee sits in Monroe County between Knoxville and Chattanooga, and we serve homeowners and property owners throughout this area. If you need repair work done right in Madisonville and the surrounding communities, Timber Reserve is your call.',
+    character: 'Madisonville is a community of homeowners who take pride in their properties. We handle the repairs that local contractors often pass on — porch work, roof patches, drywall, flooring — and we do it without the runaround.',
+    services: [
+      'Porch & deck repair',
+      'Roof repair and leak patching',
+      'Drywall and sheetrock repair',
+      'Flooring repair and replacement',
+      'Custom woodwork',
+      'General home repairs',
+    ],
+    customerTypes: ['Homeowners', 'Property owners'],
+  },
+  {
+    slug: 'tellico-tn',
+    city: 'Tellico',
+    state: 'Tennessee',
+    stateAbbr: 'TN',
+    metaTitle: 'Home Repairs in Tellico, TN | Timber Reserve',
+    metaDesc: 'Timber Reserve serves the Tellico area in Tennessee — including Tellico Village and Tellico Plains. Home repairs, custom woodwork, and cabin renovations.',
+    intro: 'The Tellico area of Tennessee — including Tellico Village on Tellico Lake and the Tellico Plains community near the Cherokee National Forest — is home to retirees, second-home owners, and mountain cabin owners who need reliable, quality repair work. That\'s what we do.',
+    character: 'From retirement homes on Tellico Lake to mountain cabins near Tellico Plains, the properties in this area reward quality craftsmanship. We handle everything from roof patches and deck repairs to custom wood interiors that match the character of these unique homes.',
+    services: [
+      'Custom woodwork — mantles, built-ins, sawmill pieces',
+      'Porch and deck repair',
+      'Roof repair and leak patching',
+      'Lake and mountain home renovations',
+      'Flooring — hardwood and custom',
+      'Drywall and interior repairs',
+    ],
+    customerTypes: ['Retirement community homeowners', 'Lake home owners', 'Mountain cabin owners'],
+    nearby: ['Madisonville, TN', 'Knoxville, TN'],
+  },
+  ];
+  return locations.map((l) => ({ params: { location: l.slug }, props: l }));
+}
+
+const { city, state, stateAbbr, metaTitle, metaDesc, intro, character, services, customerTypes, nearby } = Astro.props;
+---
+
+<BaseLayout title={metaTitle}>
+
+  <section class="bg-[#2f6b35] text-white py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <a href="/#services" class="text-[#a8d4ab] text-sm uppercase tracking-widest font-semibold hover:text-white transition-colors mb-4 inline-block">← Service Areas</a>
+      <p class="text-[#a8d4ab] uppercase tracking-[0.3em] text-sm font-semibold mb-3">{state}</p>
+      <h1 class="text-6xl md:text-7xl font-black uppercase leading-none" style="font-family: 'Oswald', sans-serif;">{city}, {stateAbbr}</h1>
+    </div>
+  </section>
+
+  <section class="bg-[#f5edd8] py-20">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+
+      <!-- Main content -->
+      <div class="md:col-span-2 space-y-10">
+
+        <div>
+          <p class="text-lg text-gray-700 leading-relaxed mb-4">{intro}</p>
+          <p class="text-gray-600 leading-relaxed">{character}</p>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-black uppercase mb-6" style="font-family: 'Oswald', sans-serif;">Services We Offer in {city}</h2>
+          <ul class="space-y-3">
+            {services.map((s) => (
+              <li class="flex items-start gap-3 bg-white rounded p-4 shadow-sm">
+                <span class="text-[#2f6b35] font-bold text-lg mt-0.5">✓</span>
+                <span class="text-gray-700">{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-black uppercase mb-6" style="font-family: 'Oswald', sans-serif;">Who We Work With</h2>
+          <div class="flex flex-wrap gap-3">
+            {customerTypes.map((ct) => (
+              <span class="bg-[#2f6b35] text-white px-4 py-2 rounded font-semibold text-sm uppercase tracking-wide">{ct}</span>
+            ))}
+          </div>
+        </div>
+
+        {nearby && nearby.length > 0 && (
+          <div>
+            <h2 class="text-3xl font-black uppercase mb-4" style="font-family: 'Oswald', sans-serif;">Also Serving Nearby</h2>
+            <div class="flex flex-wrap gap-3">
+              {nearby.map((area) => (
+                <span class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded text-sm flex items-center gap-2">
+                  <span class="text-[#2f6b35]">📍</span> {area}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        <div class="bg-white rounded-lg shadow-sm p-6">
+          <h3 class="text-xl font-black uppercase mb-4" style="font-family: 'Oswald', sans-serif;">Get a Free Estimate in {city}</h3>
+          <p class="text-gray-600 text-sm mb-5">We'll get back to you within one business day.</p>
+          <a href="/contact" class="block w-full bg-[#2f6b35] text-white text-center py-4 font-bold uppercase tracking-wide hover:bg-[#245228] transition-colors rounded mb-3">
+            Contact Us
+          </a>
+          <a href="tel:8643265491" class="block w-full bg-[#4a3219] text-[#f5edd8] text-center py-4 font-bold uppercase tracking-wide hover:bg-[#3a2510] transition-colors rounded">
+            864.326.5491
+          </a>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm p-6">
+          <h3 class="text-xl font-black uppercase mb-4" style="font-family: 'Oswald', sans-serif;">All Our Services</h3>
+          <a href="/services" class="text-[#2f6b35] font-semibold hover:underline text-sm uppercase tracking-wide">View All Services →</a>
+        </div>
+
+        <div class="bg-[#4a3219] text-[#f5edd8] rounded-lg p-6 text-sm font-semibold uppercase tracking-wide text-center leading-relaxed">
+          Done Right.<br/>Done Fast.<br/>Work Guaranteed.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
