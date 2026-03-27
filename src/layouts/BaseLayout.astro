@@ -1,5 +1,5 @@
 ---
-const { title = 'Timber Reserve' } = Astro.props;
+const { title = 'Timber' } = Astro.props;
 import '../styles/global.css';
 import logo from '../assets/logo.png';
 ---
@@ -9,7 +9,7 @@ import logo from '../assets/logo.png';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Timber Reserve. Home Repairs and Renovations. Done Right. Done Fast. Work Guaranteed." />
+    <meta name="description" content="Timber. Home Repairs and Renovations. Done Right. Done Fast. Work Guaranteed." />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,7 +20,7 @@ import logo from '../assets/logo.png';
     <header class="bg-[#2f6b35] shadow-lg">
       <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="/">
-          <img src={logo.src} alt="Timber Reserve" width={200} class="h-14 w-auto" />
+          <img src={logo.src} alt="Timber" width={200} class="h-14 w-auto" />
         </a>
         <ul class="hidden md:flex gap-8 text-white text-sm font-semibold tracking-widest uppercase">
           <li><a href="/" class="hover:text-[#f5edd8] transition-colors">Home</a></li>
@@ -96,7 +96,7 @@ import logo from '../assets/logo.png';
       <div class="max-w-6xl mx-auto px-6 py-12">
         <div class="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <img src={logo.src} alt="Timber Reserve" width={160} class="h-12 w-auto mb-4 opacity-90" />
+            <img src={logo.src} alt="Timber" width={160} class="h-12 w-auto mb-4 opacity-90" />
             <p class="text-[#b8d4ba] text-sm leading-relaxed">
               Your one stop shop for repairs, renovations, dirt work, and small builds.
             </p>
@@ -137,7 +137,7 @@ import logo from '../assets/logo.png';
           </div>
         </div>
         <div class="border-t border-[#2f6b35] pt-6 text-center text-[#7aaa7e] text-xs tracking-widest uppercase">
-          &copy; {new Date().getFullYear()} Timber Reserve. All rights reserved.
+          &copy; {new Date().getFullYear()} Timber. All rights reserved.
         </div>
       </div>
     </footer>
