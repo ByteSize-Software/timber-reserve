@@ -29,9 +29,9 @@ export function getStaticPaths() {
     state: 'Tennessee',
     stateAbbr: 'TN',
     metaTitle: 'Home Repairs & Renovations in Knoxville, TN | Timber',
-    metaDesc: 'Timber handles home repairs, property management turnover, and pre-listing repairs in Knoxville, TN and surrounding areas including Madisonville and Tellico.',
+    metaDesc: 'Timber handles home repairs, property management turnover, and pre-listing repairs in Knoxville, TN and surrounding areas including Athens and Tellico.',
     intro: 'Knoxville is a growing city with an active rental market and a strong real estate scene. We work with Knoxville homeowners, property managers, and realtors to handle the repairs and renovations that keep properties in top shape.',
-    character: 'In Knoxville and the surrounding East Tennessee area, including Madisonville and the Tellico communities, we handle the full range of residential repair work. Rental turnovers, pre-listing punch lists, and everyday homeowner projects are all in our wheelhouse.',
+    character: 'In Knoxville and the surrounding East Tennessee area, including Athens and the Tellico communities, we handle the full range of residential repair work. Rental turnovers, pre-listing punch lists, and everyday homeowner projects are all in our wheelhouse.',
     services: [
       'Porch & deck repair',
       'Roof repair and leak patching',
@@ -42,7 +42,7 @@ export function getStaticPaths() {
       'Custom woodwork and interiors',
     ],
     customerTypes: ['Homeowners', 'Property managers', 'Realtors'],
-    nearby: ['Madisonville, TN', 'Tellico, TN'],
+    nearby: ['Athens, TN', 'Tellico, TN'],
   },
   {
     slug: 'clayton-ga',
@@ -64,14 +64,14 @@ export function getStaticPaths() {
     customerTypes: ['Mountain homeowners', 'Cabin and lakeside property owners', 'Retirees'],
   },
   {
-    slug: 'madisonville-tn',
-    city: 'Madisonville',
+    slug: 'athens-tn',
+    city: 'Athens',
     state: 'Tennessee',
     stateAbbr: 'TN',
-    metaTitle: 'Home Repairs in Madisonville, TN | Timber',
-    metaDesc: 'Timber provides home repairs and renovations in Madisonville, Tennessee. Porch repair, drywall, flooring, roof patching, and more.',
-    intro: 'Madisonville, Tennessee sits in Monroe County between Knoxville and Chattanooga, and we serve homeowners and property owners throughout this area. If you need repair work done right in Madisonville and the surrounding communities, Timber is your call.',
-    character: 'Madisonville is a community of homeowners who take pride in their properties. We handle the repairs that local contractors often pass on: porch work, roof patches, drywall, flooring. And we do it without the runaround.',
+    metaTitle: 'Home Repairs in Athens, TN | Timber',
+    metaDesc: 'Timber provides home repairs and renovations in Athens, Tennessee. Porch repair, drywall, flooring, roof patching, and more.',
+    intro: 'Athens, Tennessee sits in McMinn County between Knoxville and Chattanooga, and we serve homeowners and property owners throughout this area. If you need repair work done right in Athens and the surrounding communities, Timber is your call.',
+    character: 'Athens is a community of homeowners who take pride in their properties. We handle the repairs that local contractors often pass on: porch work, roof patches, drywall, flooring. And we do it without the runaround.',
     services: [
       'Porch & deck repair',
       'Roof repair and leak patching',
@@ -100,7 +100,7 @@ export function getStaticPaths() {
       'Drywall and interior repairs',
     ],
     customerTypes: ['Retirement community homeowners', 'Lake home owners', 'Mountain cabin owners'],
-    nearby: ['Madisonville, TN', 'Knoxville, TN'],
+    nearby: ['Athens, TN', 'Knoxville, TN'],
   },
   ];
   return locations.map((l) => ({ params: { location: l.slug }, props: l }));

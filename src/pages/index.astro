@@ -10,10 +10,22 @@ import showerImg from '../assets/images/shower.jpg';
 import bunkbedsImg from '../assets/images/custom-bunkbeds.jpg';
 import roofingImg from '../assets/images/roofing.jpg';
 import outdoorStairsImg from '../assets/images/outdoor-stairs.jpg';
+import tileImg from '../assets/images/tile.jpg';
+import fireplacePorchImg from '../assets/images/fireplace-porch.jpg';
+import sidingImg from '../assets/images/siding-and-construction.jpg';
+import sheetrockImg from '../assets/images/sheet-rock.jpg';
+import porch2Img from '../assets/images/porch-2.jpg';
+import fireplaceImg from '../assets/images/fireplace.jpg';
+import roofImg from '../assets/images/roof.jpg';
+import porchImg from '../assets/images/porch.jpg';
+import coveredDeckImg from '../assets/images/covered-deck.png';
+import coveredPatioImg from '../assets/images/covered-patio.jpg';
+import frontEntryImg from '../assets/images/front-entry.jpg';
+import outdoorSeatingImg from '../assets/images/outdoor-seating.jpg';
 
 const services = [
   { icon: '🏚️', title: 'Porch & Deck Repair',        slug: 'porch-and-deck-repair',      desc: 'Sagging boards, rotted posts, loose railings. We fix the porch and deck problems most contractors won\'t touch.' },
-  { icon: '🔧', title: 'Roof Repair & Leak Patching', slug: 'roof-repair',                 desc: 'Patches, flashing fixes, and leak repairs. We stop the damage before it spreads, without selling you a full replacement.' },
+  { icon: '🔨', title: 'Roof Repair & Leak Patching', slug: 'roof-repair',                 desc: 'Patches, flashing fixes, and leak repairs. We stop the damage before it spreads, without selling you a full replacement.' },
   { icon: '🪟', title: 'Drywall & Sheetrock Repair',  slug: 'drywall-repair',              desc: 'Holes, water damage, doorknob dents. Patched and finished so you can\'t tell it was ever there.' },
   { icon: '🪵', title: 'Flooring',                    slug: 'flooring',                    desc: 'Carpet removal, hardwood refinishing, and damaged floor repair. We get floors looking new again.' },
   { icon: '🪚', title: 'Custom Woodwork',             slug: 'custom-woodwork',             desc: 'Mantles, built-ins, and one-of-a-kind pieces using real wood and sawmill lumber. Built for homes with character.' },
@@ -22,14 +34,26 @@ const services = [
 ];
 
 const gallery = [
-  { src: remodelImg.src,        label: 'Full Remodel',       featured: true },
-  { src: bathroomImg.src,       label: 'Bathroom Work',      featured: false },
-  { src: fireplaceStoneImg.src, label: 'Custom Stonework',   featured: false },
-  { src: deckImg.src,           label: 'Deck Repair',        featured: false },
-  { src: showerImg.src,         label: 'Tile & Shower',      featured: false },
-  { src: bunkbedsImg.src,       label: 'Custom Woodwork',    featured: false },
-  { src: roofingImg.src,        label: 'Roof Repair',        featured: false },
-  { src: outdoorStairsImg.src,  label: 'Outdoor Stairs',     featured: false },
+  { src: remodelImg.src,        label: 'Full Remodel',          featured: true  },
+  { src: bathroomImg.src,       label: 'Bathroom Work',         featured: false },
+  { src: fireplaceStoneImg.src, label: 'Custom Stonework',      featured: false },
+  { src: deckImg.src,           label: 'Deck Repair',           featured: false },
+  { src: showerImg.src,         label: 'Tile & Shower',         featured: false },
+  { src: bunkbedsImg.src,       label: 'Custom Woodwork',       featured: false },
+  { src: roofingImg.src,        label: 'Roof Repair',           featured: false },
+  { src: outdoorStairsImg.src,  label: 'Outdoor Stairs',        featured: false },
+  { src: tileImg.src,           label: 'Tile Work',             featured: false },
+  { src: fireplacePorchImg.src, label: 'Fireplace Porch',       featured: false },
+  { src: sidingImg.src,         label: 'Siding & Construction', featured: false },
+  { src: sheetrockImg.src,      label: 'Sheetrock Repair',      featured: false },
+  { src: porch2Img.src,         label: 'Porch Repair',          featured: false },
+  { src: fireplaceImg.src,      label: 'Fireplace',             featured: false },
+  { src: roofImg.src,           label: 'Roof Work',             featured: false },
+  { src: porchImg.src,          label: 'Porch Work',            featured: false },
+  { src: coveredDeckImg.src,    label: 'Covered Deck',          featured: false },
+  { src: coveredPatioImg.src,   label: 'Covered Patio',         featured: false },
+  { src: frontEntryImg.src,     label: 'Front Entry',           featured: false },
+  { src: outdoorSeatingImg.src, label: 'Outdoor Seating',       featured: false },
 ];
 ---
 
@@ -106,19 +130,19 @@ const gallery = [
         <p class="text-[#2f6b35] uppercase tracking-[0.3em] text-sm font-semibold mb-2">Who We Work For</p>
         <h2 class="text-5xl font-black uppercase" style="font-family: 'Oswald', sans-serif;">We Serve You</h2>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid sm:grid-cols-2 gap-8">
 
         <div class="bg-white rounded-lg shadow-sm overflow-hidden">
           <div class="bg-[#2f6b35] px-6 py-4">
-            <h3 class="text-2xl font-black uppercase text-white" style="font-family: 'Oswald', sans-serif;">Homeowners</h3>
+            <h3 class="text-2xl font-black uppercase text-white" style="font-family: 'Oswald', sans-serif;">Realtors</h3>
           </div>
           <div class="p-6">
-            <p class="text-gray-600 leading-relaxed mb-4">Small jobs that are hard to find help with? That's our specialty. If you need a porch repaired, a leak patched, a shed built, or a shower redone, we show up and we finish the job.</p>
+            <p class="text-gray-600 leading-relaxed mb-4">If a listing has been sitting on the market for 45 days, we know why. We come in, fix what's drawing attention, and get the house to the condition buyers want, at or above market value.</p>
             <ul class="space-y-1 text-sm text-gray-700">
-              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Porch & deck repair</li>
-              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Roof patches & leak fixes</li>
-              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Shed & outbuilding builds</li>
-              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Bathroom & shower work</li>
+              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Pre-listing punch list repairs</li>
+              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Floor refinishing</li>
+              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Ceiling stain repair</li>
+              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Roof leak patching</li>
             </ul>
           </div>
         </div>
@@ -139,16 +163,31 @@ const gallery = [
         </div>
 
         <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-          <div class="bg-[#2f6b35] px-6 py-4">
-            <h3 class="text-2xl font-black uppercase text-white" style="font-family: 'Oswald', sans-serif;">Realtors</h3>
+          <div class="bg-[#4a3219] px-6 py-4">
+            <h3 class="text-2xl font-black uppercase text-[#f5edd8]" style="font-family: 'Oswald', sans-serif;">Investors</h3>
           </div>
           <div class="p-6">
-            <p class="text-gray-600 leading-relaxed mb-4">If a listing has been sitting on the market for 45 days, we know why. We come in, fix what's drawing attention, and get the house to the condition buyers want, at or above market value.</p>
+            <p class="text-gray-600 leading-relaxed mb-4">Whether you're flipping or holding, speed and execution matter. We handle the entire renovation-start to finish-so you don't have to manage trades, timelines, or surprises. One call, one crew, done right, on time, and on budget.</p>
             <ul class="space-y-1 text-sm text-gray-700">
-              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Pre-listing punch list repairs</li>
-              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Floor refinishing</li>
-              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Ceiling stain repair</li>
-              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Roof leak patching</li>
+              <li class="flex gap-2"><span class="text-[#4a3219]">✓</span> Full renovation & rehab</li>
+              <li class="flex gap-2"><span class="text-[#4a3219]">✓</span> Flip-ready or rental-ready finishes</li>
+              <li class="flex gap-2"><span class="text-[#4a3219]">✓</span> Scope, materials, and labor managed end-to-end</li>
+              <li class="flex gap-2"><span class="text-[#4a3219]">✓</span> Fast turnaround with reliable timelines</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+          <div class="bg-[#2f6b35] px-6 py-4">
+            <h3 class="text-2xl font-black uppercase text-white" style="font-family: 'Oswald', sans-serif;">Homeowners</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 leading-relaxed mb-4">Small jobs that are hard to find help with? That's our specialty. If you need a porch repaired, a leak patched, a shed built, or a shower redone, we show up and we finish the job.</p>
+            <ul class="space-y-1 text-sm text-gray-700">
+              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Porch & deck repair</li>
+              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Roof patches & leak fixes</li>
+              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Shed & outbuilding builds</li>
+              <li class="flex gap-2"><span class="text-[#2f6b35]">✓</span> Bathroom & shower work</li>
             </ul>
           </div>
         </div>
@@ -262,7 +301,7 @@ const gallery = [
 
         <a href="/locations/knoxville-tn" class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow group">
           <h3 class="text-2xl font-black uppercase mb-2 group-hover:text-[#2f6b35] transition-colors" style="font-family: 'Oswald', sans-serif;">Knoxville, TN</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">Property management turnovers, realtor repairs, and homeowner projects in Knoxville and surrounding communities including Madisonville and Tellico.</p>
+          <p class="text-gray-600 text-sm leading-relaxed">Property management turnovers, realtor repairs, and homeowner projects in Knoxville and surrounding communities including Athens and Tellico.</p>
         </a>
 
         <a href="/locations/clayton-ga" class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow group">
