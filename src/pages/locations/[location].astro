@@ -22,6 +22,7 @@ export function getStaticPaths() {
       'Bathroom and shower work',
     ],
     customerTypes: ['Homeowners', 'Property managers', 'Realtors'],
+    licensedInsured: true,
   },
   {
     slug: 'knoxville-tn',
@@ -106,7 +107,7 @@ export function getStaticPaths() {
   return locations.map((l) => ({ params: { location: l.slug }, props: l }));
 }
 
-const { city, state, stateAbbr, metaTitle, metaDesc, intro, character, services, customerTypes, nearby } = Astro.props;
+const { city, state, stateAbbr, metaTitle, metaDesc, intro, character, services, customerTypes, nearby, licensedInsured } = Astro.props;
 ---
 
 <BaseLayout title={metaTitle}>
@@ -178,6 +179,16 @@ const { city, state, stateAbbr, metaTitle, metaDesc, intro, character, services,
             864.326.5491
           </a>
         </div>
+
+        {licensedInsured && (
+          <div class="bg-white rounded-lg shadow-sm p-6 flex items-start gap-3">
+            <span class="text-[#2f6b35] text-2xl leading-none mt-0.5">🛡️</span>
+            <div>
+              <h3 class="text-xl font-black uppercase mb-1" style="font-family: 'Oswald', sans-serif;">Licensed & Insured</h3>
+              <p class="text-gray-600 text-sm">Timber is fully licensed and insured in {city}, {stateAbbr}, so your property and your project are protected.</p>
+            </div>
+          </div>
+        )}
 
         <div class="bg-white rounded-lg shadow-sm p-6">
           <h3 class="text-xl font-black uppercase mb-4" style="font-family: 'Oswald', sans-serif;">All Our Services</h3>
