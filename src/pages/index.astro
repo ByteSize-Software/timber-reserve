@@ -28,6 +28,7 @@ const services = [
   { icon: '🪟', title: 'Drywall & Sheetrock Repair',  slug: 'drywall-repair',              desc: 'Holes, water damage, doorknob dents. Patched and finished so you can\'t tell it was ever there.' },
   { icon: '🪵', title: 'Flooring',                    slug: 'flooring',                    desc: 'Carpet removal, hardwood refinishing, and damaged floor repair. We get floors looking new again.' },
   { icon: '🪚', title: 'Custom Woodwork',             slug: 'custom-woodwork',             desc: 'Mantles, built-ins, and one-of-a-kind pieces using real wood and sawmill lumber. Built for homes with character.' },
+  { icon: '💧', title: 'Crawlspace Encapsulation',    href: '/contact',                    desc: 'Damp air, musty smells, and soft floors often start under the house. We seal off the crawlspace to keep moisture out.' },
   { icon: '🏡', title: 'Pre-Listing Repairs',         slug: 'pre-listing-repairs',         desc: 'House sitting on the market? We fix what\'s keeping buyers away so your listing can close at full value.' },
   { icon: '🔑', title: 'Property Management Turnover', slug: 'property-management-turnover', desc: 'Fast, reliable between-tenant repairs. Sheetrock, paint, floors, fixtures. We get your rental rent-ready.' },
 ];
@@ -206,7 +207,7 @@ const gallery = [
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((s) => (
-          <a href={`/services/${s.slug}`} class="bg-[#f5edd8] border-l-4 border-[#2f6b35] p-6 shadow-sm hover:shadow-md transition-shadow rounded-r group">
+          <a href={s.href ?? `/services/${s.slug}`} class="bg-[#f5edd8] border-l-4 border-[#2f6b35] p-6 shadow-sm hover:shadow-md transition-shadow rounded-r group">
             <div class="text-3xl mb-3">{s.icon}</div>
             <h3 class="text-xl font-bold uppercase tracking-wide mb-2 group-hover:text-[#2f6b35] transition-colors" style="font-family: 'Oswald', sans-serif;">{s.title}</h3>
             <p class="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
